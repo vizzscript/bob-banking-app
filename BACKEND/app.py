@@ -153,6 +153,25 @@ def withdraw():
 
     # ── POST ───────────────────────────────────────────────────────────────
     raw_amount = request.form.get("amount", "")
+
+    if not raw_amount or not raw_amount.strip():
+        balance = account_module.get_balance(customer.id)
+        return render_template("withdraw.html", balance=f"{balance:,.2f}", error="Amount is required")
+
+    try:
+        amount_value = float(raw_amount)
+    except ValueError:
+        balance = account_module.get_balance(customer.id)
+        return render_template("withdraw.html", balance=f"{balance:,.2f}", error="Amount must be greater than zero")
+
+    if amount_value <= 0:
+        balance = account_module.get_balance(customer.id)
+        return render_template("withdraw.html", balance=f"{balance:,.2f}", error="Amount must be greater than zero")
+
+    current_balance = account_module.get_balance(customer.id)
+    if amount_value > current_balance:
+        return render_template("withdraw.html", balance=f"{current_balance:,.2f}", error="Insufficient funds")
+
     try:
         new_balance = account_module.withdraw(customer.id, raw_amount)
         return render_template(
