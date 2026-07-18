@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Virtual environment
+venv/
+.venv/
+env/
+
+# SQLite database (auto-created by seed.py)
+*.db
+
+# Pytest cache
+.pytest_cache/
+
+# Bob IDE config
+.bob/
+
+# Environment variable files
+.env
+.env.*
+
+# OS artefacts
+.DS_Store
+Thumbs.db
