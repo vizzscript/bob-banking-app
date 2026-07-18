@@ -1,0 +1,44 @@
+/* custom.css — Overrides and polish on top of Bootstrap 5 */
+
+/* Body & layout */
+body {
+  font-family: -apple-system, "Segoe UI", system-ui, sans-serif;
+  min-height: 100vh;
+}
+
+/* Navbar tweaks */
+.navbar-brand {
+  font-size: 1.25rem;
+  letter-spacing: 0.02em;
+}
+
+/* Card shadow consistency */
+.card {
+  border-radius: 0.75rem;
+}
+
+/* Balance display */
+.balance-display {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+/* Form input focus ring */
+.form-control:focus,
+.form-select:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.2);
+}
+
+/* Alert spacing */
+.alert {
+  border-radius: 0.5rem;
+}
+
+/* Responsive padding for main content */
+@media (max-width: 576px) {
+  main.container {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+}
